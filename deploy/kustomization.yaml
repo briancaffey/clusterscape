@@ -11,4 +11,4 @@ resources:
 # CI rewrites newTag on every push to main; Argo CD rolls it out.
 images:
   - name: harbor.lan/apps/clusterscape
-    newTag: latest
+    newTag: ba8649e7fcdf
