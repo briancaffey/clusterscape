@@ -10,7 +10,8 @@ page.on("pageerror", (e) => console.error("PAGEERROR:", e.message));
 page.on("console", (m) =>
   (process.env.DEBUG ? true : m.type() === "error") && console.error(`CONSOLE[${m.type()}]:`, m.text()),
 );
-await page.goto(process.argv[2] ?? "http://localhost:4173/", { waitUntil: "networkidle0" });
+// "load", not networkidle0 — live mode keeps an SSE connection open forever
+await page.goto(process.argv[2] ?? "http://localhost:4173/", { waitUntil: "load" });
 await new Promise((r) => setTimeout(r, 6000));
 for (const key of (process.env.KEYS ?? "").split(",").filter(Boolean)) {
   await page.keyboard.press(key);
