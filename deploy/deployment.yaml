@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clusterscape
+  labels: { app: clusterscape }
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: clusterscape }
+  template:
+    metadata:
+      labels: { app: clusterscape }
+    spec:
+      serviceAccountName: clusterscape
+      nodeSelector:
+        kubernetes.io/arch: amd64   # CI builds amd64-only
+      containers:
+        - name: bridge
+          # tag managed by CI via `images:` in kustomization.yaml
+          image: harbor.lan/apps/clusterscape:latest
+          env:
+            # in-cluster Prometheus — plain HTTP service, no cert dance
+            - { name: PROM_URL, value: "http://prometheus.monitoring.svc.cluster.local:9090" }
+            - { name: INTERVAL_MS, value: "20000" }
+          ports:
+            - { name: http, containerPort: 8080 }
+          readinessProbe:
+            httpGet: { path: /api/snapshot, port: http }
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          resources:
+            requests: { cpu: 50m, memory: 128Mi }
+            limits: { memory: 512Mi }

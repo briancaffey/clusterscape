@@ -18,11 +18,21 @@
 import { createServer } from "node:http";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { dirname, join, normalize, extname } from "node:path";
+import { readFileSync, existsSync, statSync } from "node:fs";
 
 const PORT = Number(process.env.PORT ?? 4301);
 const INTERVAL = Number(process.env.INTERVAL_MS ?? 20000);
-const SNAPSHOT_SCRIPT = join(dirname(fileURLToPath(import.meta.url)), "..", "scripts", "snapshot.mjs");
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+const SNAPSHOT_SCRIPT = join(ROOT, "scripts", "snapshot.mjs");
+// When set (the container image sets it to the exported site), the bridge
+// also serves the app itself — one process, site + live API, same origin.
+const STATIC_DIR = process.env.SERVE_STATIC ?? null;
+const MIME = {
+  ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json",
+  ".png": "image/png", ".svg": "image/svg+xml", ".ico": "image/x-icon", ".txt": "text/plain",
+  ".glb": "model/gltf-binary", ".woff2": "font/woff2", ".webp": "image/webp",
+};
 
 let current = null;
 const clients = new Set();
@@ -61,6 +71,18 @@ createServer((req, res) => {
     if (current) res.write(`data: ${JSON.stringify(current)}\n\n`);
     clients.add(res);
     req.on("close", () => clients.delete(res));
+  } else if (STATIC_DIR) {
+    const url = (req.url ?? "/").split("?")[0];
+    let file = normalize(join(STATIC_DIR, url === "/" ? "index.html" : decodeURIComponent(url)));
+    if (!file.startsWith(normalize(STATIC_DIR))) {
+      res.writeHead(403, cors);
+      return res.end();
+    }
+    if (existsSync(file) && statSync(file).isDirectory()) file = join(file, "index.html");
+    if (!existsSync(file) && existsSync(`${file}.html`)) file = `${file}.html`;
+    if (!existsSync(file)) file = join(STATIC_DIR, "index.html"); // SPA-ish fallback
+    res.writeHead(200, { "Content-Type": MIME[extname(file)] ?? "application/octet-stream", ...cors });
+    res.end(readFileSync(file));
   } else {
     res.writeHead(404, cors);
     res.end("clusterscape bridge: /api/snapshot or /api/stream");

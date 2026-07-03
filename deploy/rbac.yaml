@@ -1,0 +1,41 @@
+# Read-only eyes: exactly what the snapshot collector asks kubectl for,
+# nothing else. No secrets, no configmaps, no writes.
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: clusterscape
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: clusterscape-read
+rules:
+  - apiGroups: [""]
+    resources:
+      - nodes
+      - namespaces
+      - pods
+      - services
+      - events
+      - persistentvolumeclaims
+      - persistentvolumes
+    verbs: [get, list]
+  - apiGroups: [apps]
+    resources: [deployments, statefulsets, daemonsets]
+    verbs: [get, list]
+  - apiGroups: [networking.k8s.io]
+    resources: [ingresses]
+    verbs: [get, list]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: clusterscape-read
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: clusterscape-read
+subjects:
+  - kind: ServiceAccount
+    name: clusterscape
+    namespace: clusterscape

@@ -10,6 +10,8 @@ export function Hud() {
   const mode = useStore((s) => s.cameraMode);
   const theme = useStore((s) => s.theme);
   const pointerLocked = useStore((s) => s.pointerLocked);
+  const dataMode = useStore((s) => s.dataMode);
+  const setShowWelcome = useStore((s) => s.setShowWelcome);
   const setCameraMode = useStore((s) => s.setCameraMode);
   const setTheme = useStore((s) => s.setTheme);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -46,7 +48,10 @@ export function Hud() {
           {snapshot.meta.clusterName} · {c.nodes} nodes · {c.pods} pods · {c.services} services ·{" "}
           {c.pvcs} volumes
         </p>
-        <p className="dim">snapshot {new Date(snapshot.meta.capturedAt).toLocaleString()}</p>
+        <p className={`mode-pill ${dataMode === "live" ? "live" : "dim"}`}>
+          {dataMode === "live" ? "● live" : "◼ static snapshot"} ·{" "}
+          {new Date(snapshot.meta.capturedAt).toLocaleString()}
+        </p>
       </header>
 
       <nav className="hud hud-top-right">
@@ -62,6 +67,7 @@ export function Hud() {
         <button onClick={() => setTheme(theme === "night" ? "day" : "night")}>
           T · {theme === "night" ? "day mode" : "night mode"}
         </button>
+        <button onClick={() => setShowWelcome(true)}>? · about</button>
         {mode === "fps" && (
           <p className="dim">
             click to lock · WASD / IJKL move · E/Q up/down · hold SHIFT to inspect with the cursor

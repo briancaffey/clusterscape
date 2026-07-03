@@ -1,0 +1,31 @@
+# https://clusterscape.lan/ (Traefik + mkcert clusterscape-tls from
+# scripts/lan-certs.sh in the home-cluster repo). The live app — the bridge
+# serves the site and the SSE stream from the same origin.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: clusterscape
+  annotations:
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "clusterscape"
+    gethomepage.dev/description: "3D cluster explorer (live)"
+    gethomepage.dev/group: "Monitoring"
+    gethomepage.dev/icon: "kubernetes.png"
+    gethomepage.dev/pod-selector: "app=clusterscape"
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: clusterscape.lan
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: clusterscape
+                port:
+                  number: 80
+  tls:
+    - secretName: clusterscape-tls
+      hosts:
+        - clusterscape.lan

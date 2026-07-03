@@ -6,6 +6,7 @@ import { layoutScene, type SceneLayout } from "@/model/layout";
 import type { Theme } from "@/scene/palette";
 
 export type CameraMode = "iso" | "fps" | "tp";
+export type DataMode = "static" | "live";
 
 interface Store {
   snapshot: ClusterSnapshot | null;
@@ -16,6 +17,8 @@ interface Store {
   cameraMode: CameraMode;
   theme: Theme;
   pointerLocked: boolean;
+  dataMode: DataMode;
+  showWelcome: boolean;
   setSnapshot: (s: ClusterSnapshot) => void;
   setLogos: (m: LogoManifest) => void;
   setHovered: (id: string | null) => void;
@@ -23,6 +26,8 @@ interface Store {
   setCameraMode: (m: CameraMode) => void;
   setTheme: (t: Theme) => void;
   setPointerLocked: (v: boolean) => void;
+  setDataMode: (m: DataMode) => void;
+  setShowWelcome: (v: boolean) => void;
 }
 
 export const useStore = create<Store>((set) => ({
@@ -34,6 +39,8 @@ export const useStore = create<Store>((set) => ({
   cameraMode: "iso",
   theme: "night",
   pointerLocked: false,
+  dataMode: "static",
+  showWelcome: false,
   setSnapshot: (snapshot) => set({ snapshot, layout: layoutScene(snapshot) }),
   setLogos: (logos) => set({ logos }),
   setHovered: (hovered) => set({ hovered }),
@@ -41,6 +48,8 @@ export const useStore = create<Store>((set) => ({
   setCameraMode: (cameraMode) => set({ cameraMode, selected: null, hovered: null }),
   setTheme: (theme) => set({ theme }),
   setPointerLocked: (pointerLocked) => set({ pointerLocked }),
+  setDataMode: (dataMode) => set({ dataMode }),
+  setShowWelcome: (showWelcome) => set({ showWelcome }),
 }));
 
 /** Stable, tasteful namespace hues (golden-ratio walk around the wheel). */
