@@ -214,7 +214,77 @@ for (const c of pvcs) {
   }
 }
 
+// ---- hardware metrics from Prometheus (point-in-time, optional) ------------
+// The static snapshot embeds utilization so even the GitHub Pages build shows
+// real RAM/disk/CPU/temperature — a live bridge just refreshes the same shape.
+const PROM = process.env.PROM_URL ?? "https://prometheus.lan";
+// mkcert CA isn't in Node's trust bundle and this only ever talks to the
+// LAN-local prometheus.lan — accept its cert for this process.
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+async function promQuery(q) {
+  const res = await fetch(`${PROM}/api/v1/query?query=${encodeURIComponent(q)}`);
+  if (!res.ok) throw new Error(`prom ${res.status}`);
+  return (await res.json()).data.result;
+}
+const byNode = (rows, f = Number) =>
+  Object.fromEntries(rows.filter((r) => r.metric.node).map((r) => [r.metric.node, f(r.value[1])]));
+
+let metrics = null;
+try {
+  const [memTotal, memAvail, diskSize, diskAvail, cpuPct, cpuTemp, gpuTemp, gpuUtil, vram] =
+    await Promise.all([
+      promQuery("node_memory_MemTotal_bytes"),
+      promQuery("node_memory_MemAvailable_bytes"),
+      promQuery('node_filesystem_size_bytes{mountpoint="/"}'),
+      promQuery('node_filesystem_avail_bytes{mountpoint="/"}'),
+      promQuery('100 * (1 - avg by(node)(rate(node_cpu_seconds_total{mode="idle"}[5m])))'),
+      // x86 boxes report coretemp/k10temp; ARM (spark) only has thermal zones
+      promQuery(
+        'max by(node)(node_hwmon_temp_celsius{chip=~".*coretemp.*|.*k10temp.*"}) or max by(node)(node_thermal_zone_temp)',
+      ),
+      promQuery("max by(node)(DCGM_FI_DEV_GPU_TEMP)"),
+      promQuery("max by(node)(DCGM_FI_DEV_GPU_UTIL)"),
+      promQuery("sum by(node, namespace, pod)(vram_used_bytes)"),
+    ]);
+  const mt = byNode(memTotal), ma = byNode(memAvail);
+  const ds = byNode(diskSize), da = byNode(diskAvail);
+  const cpu = byNode(cpuPct), ct = byNode(cpuTemp), gt = byNode(gpuTemp), gu = byNode(gpuUtil);
+  metrics = {
+    capturedAt: new Date().toISOString(),
+    nodes: Object.fromEntries(
+      nodes.map((n) => {
+        const k = n.box; // prom `node` label uses the short box name
+        return [
+          n.name,
+          {
+            memTotalBytes: mt[k] ?? null,
+            memUsedBytes: mt[k] != null && ma[k] != null ? mt[k] - ma[k] : null,
+            diskTotalBytes: ds[k] ?? null,
+            diskUsedBytes: ds[k] != null && da[k] != null ? ds[k] - da[k] : null,
+            cpuPct: cpu[k] ?? null,
+            cpuTempC: ct[k] ?? null,
+            gpuTempC: gt[k] ?? null,
+            gpuUtilPct: gu[k] ?? null,
+          },
+        ];
+      }),
+    ),
+    podVram: vram
+      .filter((r) => r.metric.pod)
+      .map((r) => ({
+        ns: r.metric.namespace ?? "",
+        pod: r.metric.pod,
+        node: r.metric.node ?? null,
+        bytes: Number(r.value[1]),
+      })),
+  };
+  console.error(`metrics: ${Object.keys(metrics.nodes).length} nodes, ${metrics.podVram.length} vram slices`);
+} catch (e) {
+  console.error(`metrics skipped (${e.message}) — snapshot continues without utilization`);
+}
+
 const snapshot = {
+  metrics,
   meta: {
     capturedAt: new Date().toISOString(),
     clusterName: "home-cluster",

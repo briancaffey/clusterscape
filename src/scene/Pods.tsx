@@ -28,7 +28,7 @@ function Pod({
   pod,
   position,
 }: {
-  pod: { ns: string; name: string; phase: string; ready: boolean; gpu: boolean };
+  pod: { ns: string; name: string; phase: string; ready: boolean; gpu: boolean; ownerKind: string | null };
   position: [number, number, number];
 }) {
   const id = ids.pod(pod.ns, pod.name);
@@ -48,26 +48,49 @@ function Pod({
     mat.current.emissiveIntensity = base + pulse;
   });
 
+  // silhouette = workload kind: box (Deployment/ReplicaSet), pillar
+  // (StatefulSet), spike (DaemonSet), gem (bare pods / jobs)
+  const kind = pod.ownerKind === "ReplicaSet" ? "Deployment" : pod.ownerKind;
+  const material = (
+    <meshPhysicalMaterial
+      ref={mat}
+      color={color}
+      emissive={color}
+      emissiveIntensity={0.6}
+      roughness={kind === "StatefulSet" ? 0.45 : 0.25}
+      metalness={kind === "DaemonSet" ? 0.5 : 0.1}
+      transparent
+      opacity={0.92}
+    />
+  );
+  const events = {
+    onPointerOver: (e: { stopPropagation: () => void }) => (e.stopPropagation(), setHovered(id)),
+    onPointerOut: () => setHovered(null),
+    onClick: (e: { stopPropagation: () => void }) => (e.stopPropagation(), setSelected(id)),
+  };
+
   return (
     <group position={position}>
-      <RoundedBox
-        args={[0.62, 0.72, 0.62]}
-        radius={0.09}
-        onPointerOver={(e) => (e.stopPropagation(), setHovered(id))}
-        onPointerOut={() => setHovered(null)}
-        onClick={(e) => (e.stopPropagation(), setSelected(id))}
-      >
-        <meshPhysicalMaterial
-          ref={mat}
-          color={color}
-          emissive={color}
-          emissiveIntensity={0.6}
-          roughness={0.25}
-          metalness={0.1}
-          transparent
-          opacity={0.92}
-        />
-      </RoundedBox>
+      {kind === "StatefulSet" ? (
+        <mesh {...events}>
+          <cylinderGeometry args={[0.3, 0.34, 0.85, 18]} />
+          {material}
+        </mesh>
+      ) : kind === "DaemonSet" ? (
+        <mesh {...events}>
+          <octahedronGeometry args={[0.42]} />
+          {material}
+        </mesh>
+      ) : kind === "Deployment" ? (
+        <RoundedBox args={[0.62, 0.72, 0.62]} radius={0.09} {...events}>
+          {material}
+        </RoundedBox>
+      ) : (
+        <mesh {...events}>
+          <icosahedronGeometry args={[0.38]} />
+          {material}
+        </mesh>
+      )}
       {pod.gpu && (
         <mesh position={[0, 0.62, 0]}>
           <coneGeometry args={[0.12, 0.34, 4]} />

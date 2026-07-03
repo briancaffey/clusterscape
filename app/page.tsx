@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { StaticProvider } from "@/model/types";
+import { StaticProvider, LiveProvider, type DataProvider } from "@/model/types";
 import { useStore } from "@/state/store";
 import { Hud } from "@/ui/Hud";
 
@@ -11,19 +11,32 @@ const Scene = dynamic(() => import("@/scene/Scene").then((m) => m.Scene), { ssr:
 export default function Page() {
   const snapshot = useStore((s) => s.snapshot);
   const setSnapshot = useStore((s) => s.setSnapshot);
+  const setLogos = useStore((s) => s.setLogos);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // DataProvider seam: swap StaticProvider for a live bridge later without
-    // touching the scene.
-    const provider = new StaticProvider(
-      `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/data/cluster.json`,
-    );
+    const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+    // DataProvider seam: ?live=1 talks to the bridge (same-origin or
+    // NEXT_PUBLIC_BRIDGE_URL); default is the committed static snapshot.
+    const params = new URLSearchParams(window.location.search);
+    const live = params.get("live") === "1";
+    const provider: DataProvider = live
+      ? new LiveProvider(process.env.NEXT_PUBLIC_BRIDGE_URL ?? "")
+      : new StaticProvider(`${base}/data/cluster.json`);
+
     provider
       .getSnapshot()
       .then(setSnapshot)
       .catch((e) => setError(String(e)));
-  }, [setSnapshot]);
+    const unsub = provider.subscribe?.(setSnapshot);
+
+    fetch(`${base}/logos/manifest.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((m) => m && setLogos(m))
+      .catch(() => {});
+
+    return () => unsub?.();
+  }, [setSnapshot, setLogos]);
 
   return (
     <main>

@@ -55,23 +55,40 @@ Cameras: `1` isometric orthographic (MapControls), `2` first-person free-fly
 - [x] static export + GitHub Pages workflow
 - [ ] screenshot in README
 
-### v0.2 — legibility & polish
+### v0.2 — hardware truth, identity, presence (shipped)
+- [x] day/night themes (`T`)
+- [x] hardware metrics in the snapshot (Prometheus): RAM/disk tanks on deck,
+      CPU load ring, reactor tinted by GPU temp, per-pod VRAM in the panel
+- [x] logo badges: holo-coins above namespace pads (dashboard-icons set),
+      clickable namespaces with aggregate detail view
+- [x] pod silhouettes by workload kind (box/pillar/spike/gem)
+- [x] control-plane crown (golden halo) on the master node
+- [x] fps crosshair + hold-SHIFT inspect cursor; IJKL aliases
+- [x] third-person mode: a little explorer with a chase cam
+- [x] minimal live bridge (`npm run bridge`) + `LiveProvider` (`?live=1`) —
+      full-snapshot SSE every 20s; same document, so static = live
+
+### v0.2.x — legibility backlog
 - [ ] namespace legend + filter (click to isolate a namespace)
 - [ ] focus camera on selection (`f`), breadcrumb trail for graph hops
-- [ ] workload grouping ring around owned pods; DaemonSet ghosting across islands
 - [ ] search palette (`/` fuzzy find → fly to entity)
 - [ ] instanced pod rendering + LOD text (perf headroom for busier clusters)
 - [ ] labels/annotations in snapshot (allowlisted), pod-label-accurate service selection
+- [ ] crosshair-origin raycast in fps while locked (hover currently best via SHIFT-inspect)
 
-### v0.3 — live bridge (the real-time seam becomes real)
-- [ ] `bridge/`: tiny in-cluster deployment, read-only RBAC (get/list/watch),
-      K8s watch streams → normalized snapshot deltas over SSE
+### v0.3 — live bridge grows up
+- [ ] deploy bridge in-cluster (read-only RBAC), Argo CD app, clusterscape.lan
+- [ ] K8s watch streams → deltas (replace the 20s full-snapshot loop);
+      scene tweens between layout results
 - [ ] `LiveProvider` implements `subscribe()`; scene tweens layout changes
       (pods born/die = crystals grow/shatter; rollout = wave across a pad)
 - [ ] host it in-cluster at `clusterscape.lan` (Argo CD app, of course)
 - [ ] event ripples: Warning events pulse rings at the involved entity
 
 ### v0.4 — the story layer (cross-system flows)
+- [ ] TRELLIS logo lift: scripts/trellis-pipeline.mjs turns each flat logo
+      into a GLB (image→3D) when trellis.lan is up; scene auto-upgrades
+      coins to models via the manifest `model` flag (flux pre-shading pass TBD)
 - [ ] Forgejo webhook → bridge: a push renders as a comet from a "forge"
       monument to the runner island; Argo CD app health/sync from its API;
       Harbor push = cargo arriving at a registry dock

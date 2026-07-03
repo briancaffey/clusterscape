@@ -4,16 +4,20 @@ import { Canvas } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
 import { EffectComposer, Bloom, Vignette } from "@react-three/postprocessing";
 import { useStore } from "@/state/store";
+import { PALETTES } from "./palette";
 import { Rig } from "./Rig";
 import { Islands } from "./Islands";
 import { Pods } from "./Pods";
 import { Services } from "./Services";
 import { Ingresses } from "./Ingresses";
 import { Volumes } from "./Volumes";
+import { LogoBadges } from "./LogoBadges";
 
 export function Scene() {
   const snapshot = useStore((s) => s.snapshot);
+  const theme = useStore((s) => s.theme);
   const setSelected = useStore((s) => s.setSelected);
+  const pal = PALETTES[theme];
   if (!snapshot) return null;
 
   return (
@@ -23,14 +27,17 @@ export function Scene() {
       onPointerMissed={() => setSelected(null)}
       style={{ position: "absolute", inset: 0 }}
     >
-      <color attach="background" args={["#070b14"]} />
-      <fogExp2 attach="fog" args={["#070b14", 0.0085]} />
+      <color attach="background" args={[pal.bg]} />
+      <fogExp2 attach="fog" args={[pal.bg, pal.fogDensity]} />
 
-      <ambientLight intensity={0.35} />
-      <directionalLight position={[30, 60, 20]} intensity={1.1} color="#cfe0ff" />
-      <directionalLight position={[-40, 20, -30]} intensity={0.35} color="#7f9cff" />
+      <ambientLight intensity={pal.ambient} />
+      <directionalLight position={[30, 60, 20]} intensity={pal.keyIntensity} color={pal.keyColor} />
+      <directionalLight position={[-40, 20, -30]} intensity={0.35} color={pal.fillColor} />
+      {!pal.stars && <hemisphereLight intensity={0.5} color="#ffffff" groundColor="#b7c6de" />}
 
-      <Stars radius={260} depth={60} count={2600} factor={3} saturation={0} fade speed={0.4} />
+      {pal.stars && (
+        <Stars radius={260} depth={60} count={2600} factor={3} saturation={0} fade speed={0.4} />
+      )}
 
       <Rig />
       <Islands />
@@ -38,10 +45,11 @@ export function Scene() {
       <Services />
       <Ingresses />
       <Volumes />
+      <LogoBadges />
 
       <EffectComposer>
-        <Bloom mipmapBlur intensity={0.9} luminanceThreshold={0.32} luminanceSmoothing={0.15} />
-        <Vignette eskil={false} offset={0.18} darkness={0.78} />
+        <Bloom mipmapBlur intensity={pal.bloom} luminanceThreshold={0.32} luminanceSmoothing={0.15} />
+        <Vignette eskil={false} offset={0.18} darkness={theme === "night" ? 0.78 : 0.35} />
       </EffectComposer>
     </Canvas>
   );

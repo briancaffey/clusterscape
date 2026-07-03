@@ -12,5 +12,9 @@ page.on("console", (m) =>
 );
 await page.goto(process.argv[2] ?? "http://localhost:4173/", { waitUntil: "networkidle0" });
 await new Promise((r) => setTimeout(r, 6000));
+for (const key of (process.env.KEYS ?? "").split(",").filter(Boolean)) {
+  await page.keyboard.press(key);
+  await new Promise((r) => setTimeout(r, 1200));
+}
 await page.screenshot({ path: process.argv[3] ?? "/tmp/cs.png" });
 await browser.close();

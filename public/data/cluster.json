@@ -1,6 +1,93 @@
 {
+ "metrics": {
+  "capturedAt": "2026-07-03T13:59:50.769Z",
+  "nodes": {
+   "a1": {
+    "memTotalBytes": 16688115712,
+    "memUsedBytes": 9380380672,
+    "diskTotalBytes": 117545504768,
+    "diskUsedBytes": 68713541632,
+    "cpuPct": 5.099999999974747,
+    "cpuTempC": 30,
+    "gpuTempC": 36,
+    "gpuUtilPct": 0
+   },
+   "a2": {
+    "memTotalBytes": 67147755520,
+    "memUsedBytes": 17030709248,
+    "diskTotalBytes": 1967844950016,
+    "diskUsedBytes": 1490614177792,
+    "cpuPct": 1.9985169491504307,
+    "cpuTempC": 43,
+    "gpuTempC": null,
+    "gpuUtilPct": null
+   },
+   "a3": {
+    "memTotalBytes": 67146698752,
+    "memUsedBytes": 14670336000,
+    "diskTotalBytes": 243885932544,
+    "diskUsedBytes": 169663377408,
+    "cpuPct": 5.721927966101948,
+    "cpuTempC": 35,
+    "gpuTempC": 34,
+    "gpuUtilPct": 0
+   },
+   "spark-d2ce": {
+    "memTotalBytes": 130663591936,
+    "memUsedBytes": 68288958464,
+    "diskTotalBytes": 4031871553536,
+    "diskUsedBytes": 3329967259648,
+    "cpuPct": 3.0220338983053763,
+    "cpuTempC": 45.6,
+    "gpuTempC": null,
+    "gpuUtilPct": null
+   },
+   "x1": {
+    "memTotalBytes": 7972388864,
+    "memUsedBytes": 3815542784,
+    "diskTotalBytes": 500609097728,
+    "diskUsedBytes": 244295491584,
+    "cpuPct": 15.14915254236997,
+    "cpuTempC": 38,
+    "gpuTempC": null,
+    "gpuUtilPct": null
+   }
+  },
+  "podVram": [
+   {
+    "ns": "inference-club",
+    "pod": "magpie-tts-68cfdbbc7b-6gwv6",
+    "node": "a1",
+    "bytes": 14317256704
+   },
+   {
+    "ns": "inference-club",
+    "pod": "studio-voice-5f8df9d996-ttllx",
+    "node": "a1",
+    "bytes": 3399483392
+   },
+   {
+    "ns": "inference-club",
+    "pod": "nemotron-asr-54d45b7f48-skrws",
+    "node": "spark-d2ce",
+    "bytes": 5402263552
+   },
+   {
+    "ns": "inference-club",
+    "pod": "nemotron-omni-54ddc9f9f7-fpmgb",
+    "node": "spark-d2ce",
+    "bytes": 45097156608
+   },
+   {
+    "ns": "inference-club",
+    "pod": "dia-a3-66f54dcd6f-xk7t2",
+    "node": "a3",
+    "bytes": 3955228672
+   }
+  ]
+ },
  "meta": {
-  "capturedAt": "2026-07-03T03:38:02.282Z",
+  "capturedAt": "2026-07-03T13:59:50.772Z",
   "clusterName": "home-cluster",
   "counts": {
    "nodes": 5,
@@ -8,7 +95,7 @@
    "workloads": 119,
    "pods": 177,
    "services": 108,
-   "ingresses": 56,
+   "ingresses": 57,
    "pvcs": 48
   }
  },
@@ -2078,13 +2165,13 @@
   },
   {
    "ns": "immich",
-   "name": "immich-fanout-29717495-wsrhs",
+   "name": "immich-fanout-29718115-62q7w",
    "node": "a2",
    "phase": "Succeeded",
    "ready": false,
    "restarts": 0,
    "ownerKind": "Job",
-   "ownerName": "immich-fanout-29717495",
+   "ownerName": "immich-fanout-29718115",
    "gpu": false,
    "containers": [
     {
@@ -2096,7 +2183,7 @@
    "pvcs": [
     "immich-import"
    ],
-   "startTime": "2026-07-03T03:35:00Z"
+   "startTime": "2026-07-03T13:55:00Z"
   },
   {
    "ns": "immich",
@@ -4430,13 +4517,13 @@
   },
   {
    "ns": "monitoring",
-   "name": "prometheus-75ccbbc8f7-8s44c",
+   "name": "prometheus-8f8cf4d7f-9zq6p",
    "node": "a3",
    "phase": "Running",
    "ready": true,
    "restarts": 0,
    "ownerKind": "ReplicaSet",
-   "ownerName": "prometheus-75ccbbc8f7",
+   "ownerName": "prometheus-8f8cf4d7f",
    "gpu": false,
    "containers": [
     {
@@ -4450,7 +4537,7 @@
    "pvcs": [
     "prometheus-data"
    ],
-   "startTime": "2026-07-01T00:49:50Z"
+   "startTime": "2026-07-03T13:52:08Z"
   },
   {
    "ns": "monitoring",
@@ -4567,13 +4654,13 @@
   },
   {
    "ns": "navidrome",
-   "name": "navidrome-fanout-29717495-spp4p",
+   "name": "navidrome-fanout-29718115-qhxl8",
    "node": "a2",
    "phase": "Succeeded",
    "ready": false,
    "restarts": 0,
    "ownerKind": "Job",
-   "ownerName": "navidrome-fanout-29717495",
+   "ownerName": "navidrome-fanout-29718115",
    "gpu": false,
    "containers": [
     {
@@ -4585,7 +4672,7 @@
    "pvcs": [
     "navidrome-music"
    ],
-   "startTime": "2026-07-03T03:35:00Z"
+   "startTime": "2026-07-03T13:55:00Z"
   },
   {
    "ns": "netdata",
@@ -4996,13 +5083,13 @@
   },
   {
    "ns": "paperless",
-   "name": "paperless-fanout-29717490-zdtcf",
+   "name": "paperless-fanout-29718105-6427b",
    "node": "a2",
    "phase": "Succeeded",
    "ready": false,
    "restarts": 0,
    "ownerKind": "Job",
-   "ownerName": "paperless-fanout-29717490",
+   "ownerName": "paperless-fanout-29718105",
    "gpu": false,
    "containers": [
     {
@@ -5015,7 +5102,7 @@
     "paperless-holding",
     "paperless-consume"
    ],
-   "startTime": "2026-07-03T03:30:00Z"
+   "startTime": "2026-07-03T13:45:00Z"
   },
   {
    "ns": "paperless",
@@ -8277,6 +8364,30 @@
    "annotations": {}
   },
   {
+   "ns": "monitoring",
+   "name": "prometheus",
+   "className": "traefik",
+   "hosts": [
+    "prometheus.lan"
+   ],
+   "backends": [
+    {
+     "host": "prometheus.lan",
+     "path": "/",
+     "serviceName": "prometheus",
+     "port": 9090
+    }
+   ],
+   "annotations": {
+    "gethomepage.dev/description": "Metrics TSDB",
+    "gethomepage.dev/enabled": "true",
+    "gethomepage.dev/group": "Monitoring",
+    "gethomepage.dev/icon": "prometheus.png",
+    "gethomepage.dev/name": "Prometheus",
+    "gethomepage.dev/pod-selector": "app=prometheus"
+   }
+  },
+  {
    "ns": "navidrome",
    "name": "navidrome",
    "className": "traefik",
@@ -9492,484 +9603,244 @@
  ],
  "events": [
   {
-   "ns": "default",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "dnscheck",
+   "name": "immich-fanout-29718060-s7bgk",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"busybox:1.36\" in 1.714s (1.714s including waiting). Image size: 1906887 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 1.163s (1.163s including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:44:25Z"
+   "lastTimestamp": "2026-07-03T13:00:02Z"
   },
   {
-   "ns": "default",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "dnscheck",
+   "name": "immich-fanout-29718060-s7bgk",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:44:25Z"
+   "lastTimestamp": "2026-07-03T13:00:02Z"
   },
   {
-   "ns": "forgejo",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "forgejo-5d6fb74dfb-vvbd7",
+   "name": "immich-fanout-29718065-5mchd",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Container image \"codeberg.org/forgejo/forgejo:15.0.3\" already present on machine and can be accessed by the pod",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 1.029s (1.029s including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:52:26Z"
+   "lastTimestamp": "2026-07-03T13:05:01Z"
   },
   {
-   "ns": "forgejo",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "forgejo-5d6fb74dfb-vvbd7",
+   "name": "immich-fanout-29718065-5mchd",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:52:26Z"
+   "lastTimestamp": "2026-07-03T13:05:01Z"
   },
   {
-   "ns": "forgejo",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "forgejo-9db7f6cf7-6dsvs",
-   "type": "Warning",
-   "reason": "Unhealthy",
-   "message": "Readiness probe failed: dial tcp 10.42.2.30:3000: connect: connection refused",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:52:25Z"
-  },
-  {
-   "ns": "forgejo",
-   "kind": "Pod",
-   "name": "forgejo-runner-7887df6456-rjt26",
+   "name": "immich-fanout-29718070-t9mlk",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Container image \"code.forgejo.org/forgejo/runner:12.12.0\" already present on machine and can be accessed by the pod",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 736ms (736ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:44:01Z"
+   "lastTimestamp": "2026-07-03T13:10:01Z"
   },
   {
-   "ns": "forgejo",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "forgejo-runner-7887df6456-rjt26",
+   "name": "immich-fanout-29718070-t9mlk",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:44:02Z"
+   "lastTimestamp": "2026-07-03T13:10:01Z"
   },
   {
-   "ns": "forgejo",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "forgejo-runner-7887df6456-rjt26",
+   "name": "immich-fanout-29718075-tw9tg",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"docker:28-dind\" in 10.354s (10.354s including waiting). Image size: 145542606 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 936ms (936ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:44:12Z"
+   "lastTimestamp": "2026-07-03T13:15:02Z"
   },
   {
-   "ns": "forgejo",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "forgejo-runner-7887df6456-rjt26",
+   "name": "immich-fanout-29718075-tw9tg",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:44:12Z"
+   "lastTimestamp": "2026-07-03T13:15:02Z"
   },
   {
-   "ns": "hello-gitops",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "hello-gitops-74c6bd9dc7-44gm6",
+   "name": "immich-fanout-29718080-5z96l",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"harbor.lan/apps/hello-gitops:13fa3bf98ec7\" in 9.898s (9.898s including waiting). Image size: 26003792 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 1.07s (1.07s including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:52:19Z"
+   "lastTimestamp": "2026-07-03T13:20:02Z"
   },
   {
-   "ns": "hello-gitops",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "hello-gitops-74c6bd9dc7-44gm6",
+   "name": "immich-fanout-29718080-5z96l",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:52:20Z"
+   "lastTimestamp": "2026-07-03T13:20:02Z"
   },
   {
-   "ns": "hello-gitops",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "hello-gitops-74c6bd9dc7-dxzt8",
+   "name": "immich-fanout-29718085-4rvmv",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"harbor.lan/apps/hello-gitops:13fa3bf98ec7\" in 5.303s (5.303s including waiting). Image size: 26003792 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 765ms (765ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:52:14Z"
+   "lastTimestamp": "2026-07-03T13:25:01Z"
   },
   {
-   "ns": "hello-gitops",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "hello-gitops-74c6bd9dc7-dxzt8",
-   "type": "Normal",
-   "reason": "Started",
-   "message": "Container started",
-   "count": 5,
-   "lastTimestamp": "2026-07-03T02:53:42Z"
-  },
-  {
-   "ns": "hello-gitops",
-   "kind": "Pod",
-   "name": "hello-gitops-74c6bd9dc7-dxzt8",
-   "type": "Normal",
-   "reason": "Pulled",
-   "message": "Container image \"harbor.lan/apps/hello-gitops:13fa3bf98ec7\" already present on machine and can be accessed by the pod",
-   "count": 4,
-   "lastTimestamp": "2026-07-03T02:53:42Z"
-  },
-  {
-   "ns": "hello-gitops",
-   "kind": "Pod",
-   "name": "hello-gitops-74c6bd9dc7-dxzt8",
-   "type": "Warning",
-   "reason": "BackOff",
-   "message": "Back-off restarting failed container web in pod hello-gitops-74c6bd9dc7-dxzt8_hello-gitops(31b2c8ec-8d5b-46ce-af5b-6fbfc8002dc3)",
-   "count": 9,
-   "lastTimestamp": "2026-07-03T02:53:44Z"
-  },
-  {
-   "ns": "hello-gitops",
-   "kind": "Pod",
-   "name": "hello-gitops-7855bd696c-h4svd",
-   "type": "Normal",
-   "reason": "Pulled",
-   "message": "Successfully pulled image \"harbor.lan/apps/hello-gitops:13fa3bf98ec7\" in 8.17s (8.17s including waiting). Image size: 26003792 bytes.",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:54:26Z"
-  },
-  {
-   "ns": "hello-gitops",
-   "kind": "Pod",
-   "name": "hello-gitops-7855bd696c-h4svd",
+   "name": "immich-fanout-29718085-4rvmv",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:54:27Z"
+   "lastTimestamp": "2026-07-03T13:25:01Z"
   },
   {
-   "ns": "hello-gitops",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "hello-gitops-7855bd696c-jvgqn",
+   "name": "immich-fanout-29718090-f4t7n",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Container image \"harbor.lan/apps/hello-gitops:13fa3bf98ec7\" already present on machine and can be accessed by the pod",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 908ms (908ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:54:10Z"
+   "lastTimestamp": "2026-07-03T13:30:01Z"
   },
   {
-   "ns": "hello-gitops",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "hello-gitops-7855bd696c-jvgqn",
+   "name": "immich-fanout-29718090-f4t7n",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:54:11Z"
+   "lastTimestamp": "2026-07-03T13:30:02Z"
   },
   {
-   "ns": "hello-gitops",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "hello-gitops-7855bd696c-jvgqn",
-   "type": "Warning",
-   "reason": "Unhealthy",
-   "message": "Readiness probe failed: Get \"http://10.42.1.58:80/\": dial tcp 10.42.1.58:80: connect: connection refused",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:54:37Z"
-  },
-  {
-   "ns": "hello-gitops",
-   "kind": "Pod",
-   "name": "hello-gitops-ffd687b5-k2z69",
+   "name": "immich-fanout-29718095-k7h9q",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"harbor.lan/apps/hello-gitops:b324c7776d65\" in 6.644s (6.644s including waiting). Image size: 26003792 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 744ms (744ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:54:26Z"
+   "lastTimestamp": "2026-07-03T13:35:01Z"
   },
   {
-   "ns": "hello-gitops",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "hello-gitops-ffd687b5-k2z69",
+   "name": "immich-fanout-29718095-k7h9q",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:54:26Z"
+   "lastTimestamp": "2026-07-03T13:35:01Z"
   },
   {
-   "ns": "hello-gitops",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "hello-gitops-ffd687b5-ztzwv",
+   "name": "immich-fanout-29718100-bjjps",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"harbor.lan/apps/hello-gitops:b324c7776d65\" in 3.589s (3.589s including waiting). Image size: 26003792 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 767ms (767ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:54:35Z"
+   "lastTimestamp": "2026-07-03T13:40:01Z"
   },
   {
-   "ns": "hello-gitops",
+   "ns": "immich",
    "kind": "Pod",
-   "name": "hello-gitops-ffd687b5-ztzwv",
+   "name": "immich-fanout-29718100-bjjps",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:54:35Z"
+   "lastTimestamp": "2026-07-03T13:40:01Z"
   },
   {
    "ns": "immich",
    "kind": "Pod",
-   "name": "immich-fanout-29717440-jqzkn",
+   "name": "immich-fanout-29718105-zrv4g",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 840ms (840ms including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 780ms (780ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:40:01Z"
+   "lastTimestamp": "2026-07-03T13:45:01Z"
   },
   {
    "ns": "immich",
    "kind": "Pod",
-   "name": "immich-fanout-29717440-jqzkn",
+   "name": "immich-fanout-29718105-zrv4g",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:40:01Z"
+   "lastTimestamp": "2026-07-03T13:45:01Z"
   },
   {
    "ns": "immich",
    "kind": "Pod",
-   "name": "immich-fanout-29717445-qhlhv",
+   "name": "immich-fanout-29718110-fsfz9",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 702ms (702ms including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 821ms (821ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:45:01Z"
+   "lastTimestamp": "2026-07-03T13:50:01Z"
   },
   {
    "ns": "immich",
    "kind": "Pod",
-   "name": "immich-fanout-29717445-qhlhv",
+   "name": "immich-fanout-29718110-fsfz9",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:45:01Z"
+   "lastTimestamp": "2026-07-03T13:50:02Z"
   },
   {
    "ns": "immich",
    "kind": "Pod",
-   "name": "immich-fanout-29717450-wd5mb",
+   "name": "immich-fanout-29718115-62q7w",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 2s (2s including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 831ms (831ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:50:03Z"
+   "lastTimestamp": "2026-07-03T13:55:01Z"
   },
   {
    "ns": "immich",
    "kind": "Pod",
-   "name": "immich-fanout-29717450-wd5mb",
+   "name": "immich-fanout-29718115-62q7w",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:50:03Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717455-vkrs4",
-   "type": "Normal",
-   "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 1.257s (1.257s including waiting). Image size: 29837309 bytes.",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:55:02Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717455-vkrs4",
-   "type": "Normal",
-   "reason": "Started",
-   "message": "Container started",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:55:02Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717460-954ll",
-   "type": "Normal",
-   "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 939ms (939ms including waiting). Image size: 29837309 bytes.",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:00:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717460-954ll",
-   "type": "Normal",
-   "reason": "Started",
-   "message": "Container started",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:00:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717465-dsp2v",
-   "type": "Normal",
-   "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 851ms (851ms including waiting). Image size: 29837309 bytes.",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:05:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717465-dsp2v",
-   "type": "Normal",
-   "reason": "Started",
-   "message": "Container started",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:05:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717470-rtvfd",
-   "type": "Normal",
-   "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 796ms (796ms including waiting). Image size: 29837309 bytes.",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:10:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717470-rtvfd",
-   "type": "Normal",
-   "reason": "Started",
-   "message": "Container started",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:10:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717475-r2b4m",
-   "type": "Normal",
-   "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 691ms (691ms including waiting). Image size: 29837309 bytes.",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:15:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717475-r2b4m",
-   "type": "Normal",
-   "reason": "Started",
-   "message": "Container started",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:15:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717480-4nv4t",
-   "type": "Normal",
-   "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 702ms (702ms including waiting). Image size: 29837309 bytes.",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:20:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717480-4nv4t",
-   "type": "Normal",
-   "reason": "Started",
-   "message": "Container started",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:20:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717485-p8528",
-   "type": "Normal",
-   "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 760ms (760ms including waiting). Image size: 29837309 bytes.",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:25:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717485-p8528",
-   "type": "Normal",
-   "reason": "Started",
-   "message": "Container started",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:25:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717490-hsbz7",
-   "type": "Normal",
-   "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 703ms (703ms including waiting). Image size: 29837309 bytes.",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:30:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717490-hsbz7",
-   "type": "Normal",
-   "reason": "Started",
-   "message": "Container started",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:30:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717495-wsrhs",
-   "type": "Normal",
-   "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 1.178s (1.178s including waiting). Image size: 29837309 bytes.",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:35:01Z"
-  },
-  {
-   "ns": "immich",
-   "kind": "Pod",
-   "name": "immich-fanout-29717495-wsrhs",
-   "type": "Normal",
-   "reason": "Started",
-   "message": "Container started",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:35:02Z"
+   "lastTimestamp": "2026-07-03T13:55:02Z"
   },
   {
    "ns": "inference-club",
@@ -9978,18 +9849,8 @@
    "type": "Warning",
    "reason": "FailedMount",
    "message": "MountVolume.SetUp failed for volume \"pvc-c187ba80-e1b2-4ea8-935a-d507ef9ab61f\" : rpc error: code = Aborted desc = no Pending workload pods for volume pvc-c187ba80-e1b2-4ea8-935a-d507ef9ab61f to be mounted: map[Running:[dia-a2-6995749d97-wctfw dia-a3-66f54dcd6f-xk7t2] Succeeded:[dia-download-nqlrl]]",
-   "count": 126,
-   "lastTimestamp": "2026-07-03T03:34:16Z"
-  },
-  {
-   "ns": "inference-club",
-   "kind": "Pod",
-   "name": "dia-a2-6995749d97-wctfw",
-   "type": "Warning",
-   "reason": "FailedMount",
-   "message": "MountVolume.SetUp failed for volume \"pvc-c187ba80-e1b2-4ea8-935a-d507ef9ab61f\" : rpc error: code = Internal desc = failed to get volume pvc-c187ba80-e1b2-4ea8-935a-d507ef9ab61f for publishing volume: Get \"http://longhorn-backend:9500/v1/volumes/pvc-c187ba80-e1b2-4ea8-935a-d507ef9ab61f\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
-   "count": 2,
-   "lastTimestamp": "2026-07-03T02:43:23Z"
+   "count": 433,
+   "lastTimestamp": "2026-07-03T13:59:09Z"
   },
   {
    "ns": "inference-club",
@@ -9998,1298 +9859,1258 @@
    "type": "Warning",
    "reason": "FailedMount",
    "message": "MountVolume.SetUp failed for volume \"pvc-c187ba80-e1b2-4ea8-935a-d507ef9ab61f\" : rpc error: code = Aborted desc = no Pending workload pods for volume pvc-c187ba80-e1b2-4ea8-935a-d507ef9ab61f to be mounted: map[Running:[dia-a2-6995749d97-wctfw dia-a3-66f54dcd6f-xk7t2] Succeeded:[dia-download-nqlrl]]",
-   "count": 127,
-   "lastTimestamp": "2026-07-03T03:34:52Z"
+   "count": 434,
+   "lastTimestamp": "2026-07-03T13:59:43Z"
   },
   {
-   "ns": "inference-club",
+   "ns": "longhorn-system",
    "kind": "Pod",
-   "name": "dia-a3-66f54dcd6f-xk7t2",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
    "type": "Warning",
-   "reason": "FailedMount",
-   "message": "MountVolume.SetUp failed for volume \"pvc-c187ba80-e1b2-4ea8-935a-d507ef9ab61f\" : rpc error: code = Internal desc = failed to get volume pvc-c187ba80-e1b2-4ea8-935a-d507ef9ab61f for publishing volume: Get \"http://longhorn-backend:9500/v1/volumes/pvc-c187ba80-e1b2-4ea8-935a-d507ef9ab61f\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
-   "count": 2,
-   "lastTimestamp": "2026-07-03T02:43:59Z"
-  },
-  {
-   "ns": "kube-system",
-   "kind": "Pod",
-   "name": "coredns-8db54c48d-znfgc",
-   "type": "Warning",
-   "reason": "Unhealthy",
-   "message": "Readiness probe failed: Get \"http://10.42.0.67:8181/ready\": dial tcp 10.42.0.67:8181: connect: connection refused",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:40:43Z"
+   "lastTimestamp": "2026-07-03T12:59:10Z"
   },
   {
-   "ns": "kube-system",
+   "ns": "longhorn-system",
    "kind": "Pod",
-   "name": "coredns-dd8f64f79-lrgx6",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:01:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:03:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:05:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:07:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:09:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:11:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:13:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:15:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:17:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:19:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:21:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:23:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:25:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:27:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:29:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:31:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:33:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:35:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:37:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:39:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:41:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:43:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:45:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:47:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:49:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:51:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:53:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:55:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:57:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:59:10Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:00:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:02:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:04:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:06:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:08:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:10:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:12:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:14:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:16:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:18:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:20:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:22:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:24:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:26:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:28:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:30:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:32:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:34:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:36:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:38:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:40:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:42:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:44:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:46:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:48:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:50:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:52:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:54:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:56:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:58:44Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:00:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:02:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:04:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:06:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:08:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:10:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:12:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:14:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:16:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:18:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:20:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:22:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:24:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:26:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:28:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:30:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:32:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:34:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:36:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:38:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:40:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:42:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:44:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:46:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:48:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:50:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:52:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:54:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:56:39Z"
+  },
+  {
+   "ns": "longhorn-system",
+   "kind": "Pod",
+   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
+   "type": "Warning",
+   "reason": "NodeAffinity",
+   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
+   "count": 1,
+   "lastTimestamp": "2026-07-03T13:58:39Z"
+  },
+  {
+   "ns": "monitoring",
+   "kind": "Pod",
+   "name": "prometheus-8f8cf4d7f-9zq6p",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"rancher/mirrored-coredns-coredns:1.14.3\" in 3m14.578s (3m14.578s including waiting). Image size: 21021594 bytes.",
+   "message": "Container image \"prom/prometheus:v3.1.0\" already present on machine and can be accessed by the pod",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:43:57Z"
+   "lastTimestamp": "2026-07-03T13:52:09Z"
   },
   {
-   "ns": "kube-system",
+   "ns": "monitoring",
    "kind": "Pod",
-   "name": "coredns-dd8f64f79-lrgx6",
+   "name": "prometheus-8f8cf4d7f-9zq6p",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:43:58Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:37:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:39:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:41:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:43:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:45:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:47:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:49:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:51:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:53:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:55:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:57:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:59:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:01:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:03:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:05:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:07:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:09:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:11:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:13:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:15:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:17:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:19:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:21:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:23:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:25:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:27:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:29:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:31:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:33:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:35:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-2083fd2f548b45778c02e6b1b4a0d9a8",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:37:09Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:38:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:40:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:42:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:44:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:46:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:48:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:50:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:52:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:54:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:56:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:58:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:00:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:02:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:04:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:06:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:08:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:10:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:12:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:14:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:16:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:18:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:20:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:22:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:24:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:26:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:28:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:30:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:32:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:34:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-22ee2a795f944be6e0e87fb600666343",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:36:43Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:38:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:40:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:42:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:44:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:46:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:48:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:50:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:52:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:54:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:56:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T02:58:39Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:00:39Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:02:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:04:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:06:39Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:08:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:10:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:12:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:14:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:16:39Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:18:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:20:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:22:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:24:39Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:26:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:28:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:30:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:32:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:34:38Z"
-  },
-  {
-   "ns": "longhorn-system",
-   "kind": "Pod",
-   "name": "instance-manager-9a1c1d4d529605594e6674660ac27fbc",
-   "type": "Warning",
-   "reason": "NodeAffinity",
-   "message": "Predicate NodeAffinity failed: node(s) didn't match Pod's node affinity/selector",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:36:38Z"
+   "lastTimestamp": "2026-07-03T13:52:10Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717440-pblg2",
+   "name": "navidrome-fanout-29718060-9z4ws",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 891ms (891ms including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 1.174s (1.174s including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:40:01Z"
+   "lastTimestamp": "2026-07-03T13:00:02Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717440-pblg2",
+   "name": "navidrome-fanout-29718060-9z4ws",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:40:01Z"
+   "lastTimestamp": "2026-07-03T13:00:02Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717445-v9cdb",
+   "name": "navidrome-fanout-29718065-p7xjd",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 715ms (715ms including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 984ms (984ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:45:01Z"
+   "lastTimestamp": "2026-07-03T13:05:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717445-v9cdb",
+   "name": "navidrome-fanout-29718065-p7xjd",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:45:01Z"
+   "lastTimestamp": "2026-07-03T13:05:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717450-88b67",
+   "name": "navidrome-fanout-29718070-klmr9",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 2.001s (2.001s including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 741ms (741ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:50:03Z"
+   "lastTimestamp": "2026-07-03T13:10:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717450-88b67",
+   "name": "navidrome-fanout-29718070-klmr9",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:50:03Z"
+   "lastTimestamp": "2026-07-03T13:10:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717455-8s5g9",
+   "name": "navidrome-fanout-29718075-224kn",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 1.369s (1.369s including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 952ms (952ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:55:02Z"
+   "lastTimestamp": "2026-07-03T13:15:02Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717455-8s5g9",
+   "name": "navidrome-fanout-29718075-224kn",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:55:02Z"
+   "lastTimestamp": "2026-07-03T13:15:02Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717460-hqznc",
+   "name": "navidrome-fanout-29718080-xbhnq",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 1.415s (1.415s including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 1.356s (1.356s including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:00:02Z"
+   "lastTimestamp": "2026-07-03T13:20:02Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717460-hqznc",
+   "name": "navidrome-fanout-29718080-xbhnq",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:00:02Z"
+   "lastTimestamp": "2026-07-03T13:20:02Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717465-l8l6r",
+   "name": "navidrome-fanout-29718085-qbrlz",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 877ms (877ms including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 769ms (769ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:05:01Z"
+   "lastTimestamp": "2026-07-03T13:25:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717465-l8l6r",
+   "name": "navidrome-fanout-29718085-qbrlz",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:05:01Z"
+   "lastTimestamp": "2026-07-03T13:25:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717470-rbf5v",
+   "name": "navidrome-fanout-29718090-57bhh",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 804ms (804ms including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 852ms (852ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:10:01Z"
+   "lastTimestamp": "2026-07-03T13:30:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717470-rbf5v",
+   "name": "navidrome-fanout-29718090-57bhh",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:10:01Z"
+   "lastTimestamp": "2026-07-03T13:30:02Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717475-8gbvm",
+   "name": "navidrome-fanout-29718095-rws4w",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 524ms (524ms including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 736ms (736ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:15:01Z"
+   "lastTimestamp": "2026-07-03T13:35:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717475-8gbvm",
+   "name": "navidrome-fanout-29718095-rws4w",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:15:01Z"
+   "lastTimestamp": "2026-07-03T13:35:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717480-tf567",
+   "name": "navidrome-fanout-29718100-g5jbq",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 645ms (645ms including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 775ms (775ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:20:01Z"
+   "lastTimestamp": "2026-07-03T13:40:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717480-tf567",
+   "name": "navidrome-fanout-29718100-g5jbq",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:20:01Z"
+   "lastTimestamp": "2026-07-03T13:40:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717485-rzvg6",
+   "name": "navidrome-fanout-29718105-zlpjb",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 738ms (738ms including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 793ms (793ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:25:01Z"
+   "lastTimestamp": "2026-07-03T13:45:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717485-rzvg6",
+   "name": "navidrome-fanout-29718105-zlpjb",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:25:01Z"
+   "lastTimestamp": "2026-07-03T13:45:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717490-xklzf",
+   "name": "navidrome-fanout-29718110-826jp",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 625ms (625ms including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 811ms (811ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:30:01Z"
+   "lastTimestamp": "2026-07-03T13:50:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717490-xklzf",
+   "name": "navidrome-fanout-29718110-826jp",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:30:01Z"
+   "lastTimestamp": "2026-07-03T13:50:02Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717495-spp4p",
+   "name": "navidrome-fanout-29718115-qhxl8",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 1.153s (1.153s including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 822ms (822ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:35:01Z"
+   "lastTimestamp": "2026-07-03T13:55:01Z"
   },
   {
    "ns": "navidrome",
    "kind": "Pod",
-   "name": "navidrome-fanout-29717495-spp4p",
+   "name": "navidrome-fanout-29718115-qhxl8",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:35:02Z"
+   "lastTimestamp": "2026-07-03T13:55:02Z"
   },
   {
    "ns": "paperless",
    "kind": "Pod",
-   "name": "paperless-fanout-29717445-4nhms",
+   "name": "paperless-fanout-29718060-4d5g8",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 586ms (586ms including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 3.968s (3.968s including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:45:01Z"
+   "lastTimestamp": "2026-07-03T13:00:04Z"
   },
   {
    "ns": "paperless",
    "kind": "Pod",
-   "name": "paperless-fanout-29717445-4nhms",
+   "name": "paperless-fanout-29718060-4d5g8",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T02:45:01Z"
+   "lastTimestamp": "2026-07-03T13:00:04Z"
   },
   {
    "ns": "paperless",
    "kind": "Pod",
-   "name": "paperless-fanout-29717460-scn4b",
+   "name": "paperless-fanout-29718075-x9b8m",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 1.941s (1.941s including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 933ms (933ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:00:03Z"
+   "lastTimestamp": "2026-07-03T13:15:02Z"
   },
   {
    "ns": "paperless",
    "kind": "Pod",
-   "name": "paperless-fanout-29717460-scn4b",
+   "name": "paperless-fanout-29718075-x9b8m",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:00:03Z"
+   "lastTimestamp": "2026-07-03T13:15:02Z"
   },
   {
    "ns": "paperless",
    "kind": "Pod",
-   "name": "paperless-fanout-29717475-gp6lc",
+   "name": "paperless-fanout-29718090-5wbvl",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 681ms (681ms including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 875ms (875ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:15:01Z"
+   "lastTimestamp": "2026-07-03T13:30:01Z"
   },
   {
    "ns": "paperless",
    "kind": "Pod",
-   "name": "paperless-fanout-29717475-gp6lc",
+   "name": "paperless-fanout-29718090-5wbvl",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:15:01Z"
+   "lastTimestamp": "2026-07-03T13:30:02Z"
   },
   {
    "ns": "paperless",
    "kind": "Pod",
-   "name": "paperless-fanout-29717490-zdtcf",
+   "name": "paperless-fanout-29718105-6427b",
    "type": "Normal",
    "reason": "Pulled",
-   "message": "Successfully pulled image \"minio/mc:latest\" in 619ms (619ms including waiting). Image size: 29837309 bytes.",
+   "message": "Successfully pulled image \"minio/mc:latest\" in 777ms (777ms including waiting). Image size: 29837309 bytes.",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:30:01Z"
+   "lastTimestamp": "2026-07-03T13:45:01Z"
   },
   {
    "ns": "paperless",
    "kind": "Pod",
-   "name": "paperless-fanout-29717490-zdtcf",
+   "name": "paperless-fanout-29718105-6427b",
    "type": "Normal",
    "reason": "Started",
    "message": "Container started",
    "count": 1,
-   "lastTimestamp": "2026-07-03T03:30:01Z"
-  },
-  {
-   "ns": "paperless",
-   "kind": "Pod",
-   "name": "paperless-webserver-74c894f4b7-ldpwg",
-   "type": "Warning",
-   "reason": "Unhealthy",
-   "message": "Readiness probe failed: HTTP probe failed with statuscode: 500",
-   "count": 20,
-   "lastTimestamp": "2026-07-03T02:43:55Z"
-  },
-  {
-   "ns": "paperless",
-   "kind": "Pod",
-   "name": "paperless-webserver-74c894f4b7-ldpwg",
-   "type": "Warning",
-   "reason": "Unhealthy",
-   "message": "Readiness probe failed: Get \"http://10.42.2.126:8000/accounts/login/?next=/\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
-   "count": 1,
-   "lastTimestamp": "2026-07-03T03:04:16Z"
+   "lastTimestamp": "2026-07-03T13:45:01Z"
   }
  ],
  "edges": [
@@ -11475,12 +11296,12 @@
   },
   {
    "type": "runs-on",
-   "from": "pod:immich/immich-fanout-29717495-wsrhs",
+   "from": "pod:immich/immich-fanout-29718115-62q7w",
    "to": "node:a2"
   },
   {
    "type": "mounts",
-   "from": "pod:immich/immich-fanout-29717495-wsrhs",
+   "from": "pod:immich/immich-fanout-29718115-62q7w",
    "to": "pvc:immich/immich-import"
   },
   {
@@ -12075,12 +11896,12 @@
   },
   {
    "type": "runs-on",
-   "from": "pod:monitoring/prometheus-75ccbbc8f7-8s44c",
+   "from": "pod:monitoring/prometheus-8f8cf4d7f-9zq6p",
    "to": "node:a3"
   },
   {
    "type": "mounts",
-   "from": "pod:monitoring/prometheus-75ccbbc8f7-8s44c",
+   "from": "pod:monitoring/prometheus-8f8cf4d7f-9zq6p",
    "to": "pvc:monitoring/prometheus-data"
   },
   {
@@ -12120,12 +11941,12 @@
   },
   {
    "type": "runs-on",
-   "from": "pod:navidrome/navidrome-fanout-29717495-spp4p",
+   "from": "pod:navidrome/navidrome-fanout-29718115-qhxl8",
    "to": "node:a2"
   },
   {
    "type": "mounts",
-   "from": "pod:navidrome/navidrome-fanout-29717495-spp4p",
+   "from": "pod:navidrome/navidrome-fanout-29718115-qhxl8",
    "to": "pvc:navidrome/navidrome-music"
   },
   {
@@ -12245,17 +12066,17 @@
   },
   {
    "type": "runs-on",
-   "from": "pod:paperless/paperless-fanout-29717490-zdtcf",
+   "from": "pod:paperless/paperless-fanout-29718105-6427b",
    "to": "node:a2"
   },
   {
    "type": "mounts",
-   "from": "pod:paperless/paperless-fanout-29717490-zdtcf",
+   "from": "pod:paperless/paperless-fanout-29718105-6427b",
    "to": "pvc:paperless/paperless-holding"
   },
   {
    "type": "mounts",
-   "from": "pod:paperless/paperless-fanout-29717490-zdtcf",
+   "from": "pod:paperless/paperless-fanout-29718105-6427b",
    "to": "pvc:paperless/paperless-consume"
   },
   {
@@ -12806,7 +12627,7 @@
   {
    "type": "owns",
    "from": "deployment:monitoring/prometheus",
-   "to": "pod:monitoring/prometheus-75ccbbc8f7-8s44c"
+   "to": "pod:monitoring/prometheus-8f8cf4d7f-9zq6p"
   },
   {
    "type": "owns",
@@ -13936,7 +13757,7 @@
   {
    "type": "selects",
    "from": "service:monitoring/prometheus",
-   "to": "pod:monitoring/prometheus-75ccbbc8f7-8s44c"
+   "to": "pod:monitoring/prometheus-8f8cf4d7f-9zq6p"
   },
   {
    "type": "selects",
@@ -13946,7 +13767,7 @@
   {
    "type": "selects",
    "from": "service:navidrome/navidrome",
-   "to": "pod:navidrome/navidrome-fanout-29717495-spp4p"
+   "to": "pod:navidrome/navidrome-fanout-29718115-qhxl8"
   },
   {
    "type": "selects",
@@ -13956,7 +13777,7 @@
   {
    "type": "selects",
    "from": "service:navidrome/navidrome-direct",
-   "to": "pod:navidrome/navidrome-fanout-29717495-spp4p"
+   "to": "pod:navidrome/navidrome-fanout-29718115-qhxl8"
   },
   {
    "type": "selects",
@@ -14267,6 +14088,11 @@
    "type": "routes-to",
    "from": "ingress:monitoring/grafana",
    "to": "service:monitoring/grafana"
+  },
+  {
+   "type": "routes-to",
+   "from": "ingress:monitoring/prometheus",
+   "to": "service:monitoring/prometheus"
   },
   {
    "type": "routes-to",

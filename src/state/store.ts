@@ -1,33 +1,46 @@
 "use client";
 
 import { create } from "zustand";
-import type { ClusterSnapshot } from "@/model/types";
+import type { ClusterSnapshot, LogoManifest } from "@/model/types";
 import { layoutScene, type SceneLayout } from "@/model/layout";
+import type { Theme } from "@/scene/palette";
 
-export type CameraMode = "iso" | "fps";
+export type CameraMode = "iso" | "fps" | "tp";
 
 interface Store {
   snapshot: ClusterSnapshot | null;
   layout: SceneLayout | null;
+  logos: LogoManifest | null;
   hovered: string | null; // entity id
   selected: string | null;
   cameraMode: CameraMode;
+  theme: Theme;
+  pointerLocked: boolean;
   setSnapshot: (s: ClusterSnapshot) => void;
+  setLogos: (m: LogoManifest) => void;
   setHovered: (id: string | null) => void;
   setSelected: (id: string | null) => void;
   setCameraMode: (m: CameraMode) => void;
+  setTheme: (t: Theme) => void;
+  setPointerLocked: (v: boolean) => void;
 }
 
 export const useStore = create<Store>((set) => ({
   snapshot: null,
   layout: null,
+  logos: null,
   hovered: null,
   selected: null,
   cameraMode: "iso",
+  theme: "night",
+  pointerLocked: false,
   setSnapshot: (snapshot) => set({ snapshot, layout: layoutScene(snapshot) }),
+  setLogos: (logos) => set({ logos }),
   setHovered: (hovered) => set({ hovered }),
   setSelected: (selected) => set({ selected }),
   setCameraMode: (cameraMode) => set({ cameraMode, selected: null, hovered: null }),
+  setTheme: (theme) => set({ theme }),
+  setPointerLocked: (pointerLocked) => set({ pointerLocked }),
 }));
 
 /** Stable, tasteful namespace hues (golden-ratio walk around the wheel). */

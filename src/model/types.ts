@@ -2,7 +2,29 @@
 // this — the shape is deliberately independent of raw Kubernetes API objects
 // so that live providers (watch streams, app APIs) can emit the same model.
 
+export interface NodeMetrics {
+  memTotalBytes: number | null;
+  memUsedBytes: number | null;
+  diskTotalBytes: number | null;
+  diskUsedBytes: number | null;
+  cpuPct: number | null;
+  cpuTempC: number | null;
+  gpuTempC: number | null;
+  gpuUtilPct: number | null;
+}
+
+export interface SnapshotMetrics {
+  capturedAt: string;
+  nodes: Record<string, NodeMetrics>;
+  podVram: { ns: string; pod: string; node: string | null; bytes: number }[];
+}
+
+export interface LogoManifest {
+  namespaces: Record<string, { slug: string; model?: boolean }>;
+}
+
 export interface ClusterSnapshot {
+  metrics?: SnapshotMetrics | null;
   meta: {
     capturedAt: string;
     clusterName: string;
@@ -139,5 +161,31 @@ export class StaticProvider implements DataProvider {
     const res = await fetch(this.url);
     if (!res.ok) throw new Error(`snapshot fetch failed: ${res.status}`);
     return res.json();
+  }
+}
+
+/**
+ * Live mode: the bridge (bridge/server.mjs — same collector as
+ * scripts/snapshot.mjs, on a loop) serves the current snapshot and pushes a
+ * fresh one over SSE whenever it re-collects. Same document shape as the
+ * static file, so the scene can't tell the difference — that's the point.
+ */
+export class LiveProvider implements DataProvider {
+  constructor(private base: string) {}
+  async getSnapshot(): Promise<ClusterSnapshot> {
+    const res = await fetch(`${this.base}/api/snapshot`);
+    if (!res.ok) throw new Error(`bridge fetch failed: ${res.status}`);
+    return res.json();
+  }
+  subscribe(onChange: (next: ClusterSnapshot) => void): () => void {
+    const es = new EventSource(`${this.base}/api/stream`);
+    es.onmessage = (ev) => {
+      try {
+        onChange(JSON.parse(ev.data));
+      } catch {
+        /* partial frame — ignore */
+      }
+    };
+    return () => es.close();
   }
 }

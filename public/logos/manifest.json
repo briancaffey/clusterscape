@@ -1,0 +1,95 @@
+{
+  "_comment": "namespace -> icon slug at homarr-labs/dashboard-icons (png/<slug>.png). Run scripts/fetch-logos.mjs after editing. `model: true` means public/models/<slug>.glb exists (produced by scripts/trellis-pipeline.mjs) and the scene renders the 3D model instead of the holo-coin.",
+  "namespaces": {
+    "argocd": {
+      "slug": "argo-cd"
+    },
+    "audiobookshelf": {
+      "slug": "audiobookshelf"
+    },
+    "forgejo": {
+      "slug": "forgejo"
+    },
+    "gatus": {
+      "slug": "gatus"
+    },
+    "harbor": {
+      "slug": "harbor"
+    },
+    "headlamp": {
+      "slug": "headlamp"
+    },
+    "homepage": {
+      "slug": "homepage"
+    },
+    "immich": {
+      "slug": "immich"
+    },
+    "invokeai": {
+      "slug": "invoke-ai"
+    },
+    "jellyfin": {
+      "slug": "jellyfin"
+    },
+    "jupyter": {
+      "slug": "jupyter"
+    },
+    "kube-ops-view": {
+      "slug": "kubernetes"
+    },
+    "kube-system": {
+      "slug": "kubernetes"
+    },
+    "longhorn-system": {
+      "slug": "longhorn"
+    },
+    "mailpit": {
+      "slug": "mailpit"
+    },
+    "manyfold": {
+      "slug": "manyfold"
+    },
+    "monitoring": {
+      "slug": "grafana"
+    },
+    "navidrome": {
+      "slug": "navidrome"
+    },
+    "netdata": {
+      "slug": "netdata"
+    },
+    "open-webui": {
+      "slug": "open-webui"
+    },
+    "paperless": {
+      "slug": "paperless-ngx"
+    },
+    "pihole": {
+      "slug": "pi-hole"
+    },
+    "speedtest": {
+      "slug": "openspeedtest"
+    },
+    "tailscale": {
+      "slug": "tailscale"
+    },
+    "traefik": {
+      "slug": "traefik"
+    },
+    "vaultwarden": {
+      "slug": "vaultwarden"
+    },
+    "minio": {
+      "slug": "minio"
+    },
+    "platform": {
+      "slug": "minio"
+    },
+    "node-feature-discovery": {
+      "slug": "kubernetes"
+    },
+    "hello-gitops": {
+      "slug": "argo-cd"
+    }
+  }
+}
