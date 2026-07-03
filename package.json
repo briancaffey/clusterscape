@@ -4,7 +4,7 @@
   "private": true,
   "description": "A 3D explorer for the home cluster — walk around your Kubernetes resources.",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 4300",
     "build": "next build",
     "snapshot": "node scripts/snapshot.mjs",
     "serve": "npx serve out"

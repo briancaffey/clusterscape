@@ -7,7 +7,9 @@ const browser = await puppeteer.launch({
 const page = await browser.newPage();
 await page.setViewport({ width: 1600, height: 1000, deviceScaleFactor: 2 });
 page.on("pageerror", (e) => console.error("PAGEERROR:", e.message));
-page.on("console", (m) => m.type() === "error" && console.error("CONSOLE:", m.text()));
+page.on("console", (m) =>
+  (process.env.DEBUG ? true : m.type() === "error") && console.error(`CONSOLE[${m.type()}]:`, m.text()),
+);
 await page.goto(process.argv[2] ?? "http://localhost:4173/", { waitUntil: "networkidle0" });
 await new Promise((r) => setTimeout(r, 6000));
 await page.screenshot({ path: process.argv[3] ?? "/tmp/cs.png" });
